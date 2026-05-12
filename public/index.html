@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leonard Dumitru — Product & AI Systems Architect</title>
+  <meta name="description" content="Product & AI Systems Architect building AI agents, MCP knowledge systems, custom SalesOS workflows, and R&D-oriented product logic across GTM, telecom, AdTech, UAV, ISR, RF-spectrum and data-fusion domains." />
+  <meta property="og:title" content="Leonard Dumitru — Product & AI Systems Architect" />
+  <meta property="og:description" content="AI systems, Claude Code, MCP, custom SalesOS, commercial automation, ISR/RF/payload R&D product logic." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#05070D" />
+  <style>
+    :root {
+      --bg: #05070d;
+      --bg-2: #080c14;
+      --panel: rgba(12, 18, 30, 0.74);
+      --panel-2: rgba(17, 25, 40, 0.88);
+      --line: rgba(122, 255, 183, 0.18);
+      --line-2: rgba(148, 163, 184, 0.22);
+      --text: #eef7ff;
+      --muted: #94a3b8;
+      --soft: #cbd5e1;
+      --green: #2af598;
+      --cyan: #37d8ff;
+      --violet: #9f7aea;
+      --amber: #facc15;
+      --red: #fb7185;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --radius: 26px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: var(--sans);
+      background:
+        radial-gradient(circle at 10% -10%, rgba(42, 245, 152, .18), transparent 35rem),
+        radial-gradient(circle at 90% 5%, rgba(55, 216, 255, .14), transparent 32rem),
+        radial-gradient(circle at 55% 85%, rgba(159, 122, 234, .12), transparent 30rem),
+        linear-gradient(180deg, #05070d 0%, #070a12 48%, #05070d 100%);
+      line-height: 1.58;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .38;
+      background-image:
+        linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.1));
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(to bottom, rgba(255,255,255,.025), rgba(255,255,255,.025) 1px, transparent 1px, transparent 5px);
+      mix-blend-mode: overlay;
+      opacity: .18;
+    }
+    a { color: inherit; text-decoration: none; }
+    .shell { width: min(1180px, calc(100% - 36px)); margin: 0 auto; position: relative; z-index: 1; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line-2);
+      background: rgba(5, 7, 13, .76);
+      backdrop-filter: blur(18px);
+    }
+    .topbar-inner {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 14px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .identity { display: flex; align-items: center; gap: 12px; min-width: 260px; }
+    .sig {
+      width: 38px; height: 38px; border-radius: 12px;
+      display: grid; place-items: center;
+      color: var(--green);
+      font-family: var(--mono);
+      font-weight: 800;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(42,245,152,.14), rgba(55,216,255,.08));
+      box-shadow: 0 0 28px rgba(42,245,152,.12);
+    }
+    .identity strong { display: block; font-size: .92rem; letter-spacing: .01em; }
+    .identity span { display: block; color: var(--muted); font-size: .78rem; font-family: var(--mono); }
+    nav { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+    nav a {
+      color: var(--soft);
+      border: 1px solid var(--line-2);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: .78rem;
+      font-family: var(--mono);
+      background: rgba(255,255,255,.03);
+    }
+    nav a:hover { color: var(--green); border-color: rgba(42,245,152,.45); }
+
+    .hero { padding: 72px 0 38px; }
+    .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 22px; align-items: stretch; }
+    .glass {
+      position: relative;
+      border: 1px solid var(--line-2);
+      background: linear-gradient(145deg, rgba(12,18,30,.88), rgba(8,12,20,.72));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(120deg, rgba(42,245,152,.16), transparent 32%, rgba(55,216,255,.10));
+      opacity: .75;
+    }
+    .hero-main { padding: 36px; min-height: 560px; display: flex; flex-direction: column; justify-content: space-between; }
+    .eyebrow {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: .82rem;
+      border: 1px solid rgba(42,245,152,.28);
+      background: rgba(42,245,152,.08);
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 16px var(--green); }
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin-top: 26px;
+      max-width: 900px;
+      font-size: clamp(3.15rem, 7.2vw, 6.8rem);
+      line-height: .88;
+      letter-spacing: -.07em;
+      font-weight: 860;
+    }
+    .grad {
+      background: linear-gradient(90deg, #ffffff 0%, #a7f3d0 42%, #67e8f9 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      margin-top: 24px;
+      max-width: 780px;
+      color: var(--soft);
+      font-size: 1.08rem;
+    }
+    .terminal {
+      position: relative;
+      z-index: 1;
+      margin-top: 28px;
+      border: 1px solid rgba(42,245,152,.2);
+      border-radius: 18px;
+      background: rgba(1, 4, 9, .72);
+      overflow: hidden;
+      font-family: var(--mono);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.02);
+    }
+    .term-head { display: flex; align-items: center; gap: 7px; padding: 10px 14px; border-bottom: 1px solid rgba(255,255,255,.08); color: var(--muted); font-size: .76rem; }
+    .bubble { width: 10px; height: 10px; border-radius: 50%; background: #475569; }
+    .bubble:nth-child(1) { background: #fb7185; }
+    .bubble:nth-child(2) { background: #facc15; }
+    .bubble:nth-child(3) { background: #2af598; }
+    .term-body { padding: 15px 16px 17px; color: #d7ffe8; font-size: .88rem; }
+    .prompt { color: var(--green); }
+    .comment { color: #7dd3fc; }
+    .hero-actions { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(42,245,152,.35);
+      color: #06110c;
+      background: linear-gradient(90deg, var(--green), #67e8f9);
+      font-weight: 800;
+      box-shadow: 0 12px 34px rgba(42,245,152,.14);
+    }
+    .btn.secondary { background: rgba(255,255,255,.04); color: var(--soft); border-color: var(--line-2); box-shadow: none; }
+    .btn:hover { transform: translateY(-1px); }
+
+    .hero-side { padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+    .profile-card { padding: 22px; }
+    .profile-wrap { display: grid; grid-template-columns: 134px 1fr; gap: 18px; align-items: center; position: relative; z-index: 1; }
+    .avatar {
+      width: 134px;
+      aspect-ratio: 1;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(42,245,152,.38);
+      background: #05070d;
+      box-shadow: 0 0 42px rgba(42,245,152,.12);
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .profile-card h2 { font-size: 1.55rem; line-height: 1.04; letter-spacing: -.04em; margin-bottom: 8px; }
+    .profile-card p { color: var(--muted); font-size: .93rem; }
+    .upload-note {
+      position: relative;
+      z-index: 1;
+      margin-top: 16px;
+      padding: 12px;
+      border: 1px dashed rgba(42,245,152,.34);
+      border-radius: 16px;
+      background: rgba(42,245,152,.06);
+      color: var(--soft);
+      font-size: .82rem;
+      font-family: var(--mono);
+    }
+    .mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; position: relative; z-index: 1; }
+    .metric {
+      padding: 16px;
+      border: 1px solid var(--line-2);
+      border-radius: 18px;
+      background: rgba(255,255,255,.035);
+    }
+    .metric strong { display: block; color: var(--green); font-size: 1.55rem; letter-spacing: -.03em; line-height: 1; margin-bottom: 8px; }
+    .metric span { display: block; color: var(--muted); font-size: .78rem; font-family: var(--mono); }
+    .stack-card { padding: 18px; position: relative; z-index: 1; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--soft);
+      border: 1px solid var(--line-2);
+      background: rgba(255,255,255,.035);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: .78rem;
+      font-family: var(--mono);
+    }
+    .chip.hot { color: var(--green); border-color: rgba(42,245,152,.35); background: rgba(42,245,152,.07); }
+
+    section { padding: 36px 0; }
+    .section-head { display: flex; justify-content: space-between; gap: 18px; align-items: end; margin-bottom: 18px; }
+    .label { color: var(--green); font-family: var(--mono); font-size: .82rem; text-transform: uppercase; letter-spacing: .14em; }
+    h2.section-title { font-size: clamp(2rem, 4vw, 3.3rem); line-height: .98; letter-spacing: -.055em; margin-top: 6px; }
+    .section-note { max-width: 420px; color: var(--muted); font-size: .95rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .panel {
+      border: 1px solid var(--line-2);
+      background: linear-gradient(145deg, rgba(15,23,42,.82), rgba(8,13,24,.66));
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 16px 50px rgba(0,0,0,.20);
+    }
+    .panel h3 { font-size: 1.2rem; letter-spacing: -.02em; margin-bottom: 10px; }
+    .panel p { color: var(--soft); }
+    .panel ul { margin-top: 12px; padding-left: 18px; color: var(--soft); }
+    .panel li { margin: 8px 0; }
+    .accent { color: var(--green); }
+    .cyan { color: var(--cyan); }
+    .muted { color: var(--muted); }
+    .mono { font-family: var(--mono); }
+
+    .architecture { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .node {
+      min-height: 144px;
+      border-radius: 22px;
+      border: 1px solid var(--line-2);
+      background: rgba(255,255,255,.035);
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .node::after {
+      content: "";
+      position: absolute;
+      inset: auto 18px 14px auto;
+      width: 46px; height: 46px;
+      border: 1px solid rgba(42,245,152,.22);
+      border-radius: 14px;
+      transform: rotate(12deg);
+    }
+    .node .num { color: var(--green); font-family: var(--mono); font-size: .78rem; margin-bottom: 18px; }
+    .node strong { display: block; margin-bottom: 8px; }
+    .node span { display: block; color: var(--muted); font-size: .83rem; }
+
+    .timeline { display: grid; gap: 16px; }
+    .job {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 18px;
+      border: 1px solid var(--line-2);
+      background: rgba(15,23,42,.62);
+      border-radius: 24px;
+      padding: 18px;
+    }
+    .job-meta {
+      border-right: 1px solid var(--line-2);
+      padding-right: 18px;
+    }
+    .job-meta h3 { font-size: 1.08rem; line-height: 1.18; margin-bottom: 10px; }
+    .job-meta .company { color: var(--green); font-family: var(--mono); font-size: .86rem; margin-bottom: 6px; }
+    .job-meta .date { color: var(--muted); font-size: .84rem; }
+    .job-body .block-title { color: var(--cyan); font-family: var(--mono); font-size: .82rem; margin: 2px 0 8px; text-transform: uppercase; letter-spacing: .08em; }
+    .job-body ul { padding-left: 18px; color: var(--soft); }
+    .job-body li { margin: 8px 0; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .tag {
+      color: var(--soft);
+      border: 1px solid var(--line-2);
+      border-radius: 999px;
+      padding: 5px 8px;
+      font-size: .72rem;
+      font-family: var(--mono);
+      background: rgba(255,255,255,.035);
+    }
+
+    .skill-matrix { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .skill-box { border: 1px solid var(--line-2); border-radius: 22px; padding: 18px; background: rgba(255,255,255,.035); }
+    .skill-box h3 { font-size: 1rem; color: var(--green); margin-bottom: 10px; }
+    .skill-box p { color: var(--muted); font-size: .9rem; }
+
+    .contact-card { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; align-items: stretch; }
+    .quote {
+      font-size: clamp(1.5rem, 3.2vw, 2.7rem);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      font-weight: 780;
+    }
+    footer { color: var(--muted); font-family: var(--mono); font-size: .78rem; padding: 26px 0 54px; border-top: 1px solid var(--line-2); }
+
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .hero-grid, .grid-2, .grid-3, .contact-card { grid-template-columns: 1fr; }
+      .architecture { grid-template-columns: 1fr 1fr; }
+      .job { grid-template-columns: 1fr; }
+      .job-meta { border-right: 0; border-bottom: 1px solid var(--line-2); padding-right: 0; padding-bottom: 14px; }
+      .skill-matrix { grid-template-columns: 1fr 1fr; }
+      .hero-main { min-height: auto; }
+    }
+    @media (max-width: 640px) {
+      .shell, .topbar-inner { width: min(100% - 24px, 1180px); }
+      .hero { padding-top: 36px; }
+      .hero-main { padding: 24px; }
+      .profile-wrap, .architecture, .skill-matrix, .mini-grid { grid-template-columns: 1fr; }
+      .avatar { width: 120px; }
+      h1 { font-size: 3rem; }
+    }
+    @media print {
+      body { background: #fff; color: #111827; }
+      body::before, body::after, .topbar, .terminal, .upload-note { display: none; }
+      .shell { width: 100%; }
+      .glass, .panel, .job, .skill-box, .node { background: #fff; color: #111827; box-shadow: none; border-color: #d1d5db; }
+      .glass::before { display: none; }
+      .muted, .panel p, .panel li, .job-body li, .metric span { color: #374151; }
+      .grad { color: #111827; background: none; }
+      .btn { border: 1px solid #111827; background: #fff; color: #111827; }
+      a { color: #111827; }
+      section { padding: 18px 0; }
+      .hero { padding: 20px 0; }
+      .job, .panel { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="identity" href="#top" aria-label="Leonard Dumitru home">
+        <div class="sig">LD</div>
+        <div>
+          <strong>Leonard Dumitru</strong>
+          <span>product_ai.systems()</span>
+        </div>
+      </a>
+      <nav aria-label="Page navigation">
+        <a href="#systems">Systems</a>
+        <a href="#current">Current</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#experience">Experience</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <header id="top" class="hero shell">
+    <div class="hero-grid">
+      <div class="glass hero-main">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Product & AI Systems Architect · Bucharest / Remote-first</div>
+          <h1><span class="grad">I turn chaos into AI-operable systems.</span></h1>
+          <p class="hero-copy">
+            I build the operating layer between messy business reality and technical execution: relational data models, AI agents, MCP retrieval, custom SalesOS workflows, GTM automation and R&D-oriented product logic.
+          </p>
+          <div class="terminal" aria-label="terminal-styled summary">
+            <div class="term-head"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span>~/leonard/profile</span></div>
+            <div class="term-body">
+              <div><span class="prompt">$</span> solve --input scattered_saas --output custom_salesos</div>
+              <div><span class="prompt">$</span> build --agents claude_code,mcp,rag --guardrails strict</div>
+              <div><span class="prompt">$</span> model --domains gtmtelco,adtech,uav,isr,rf,payloads,data_fusion</div>
+              <div class="comment">// outcome: product clarity + executable systems + commercial leverage</div>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn" href="mailto:wh-systems@proton.me?subject=Intro%20Call%20with%20Leonard%20Dumitru">Email me</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/wh-systems/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="glass hero-side">
+        <div class="profile-card">
+          <div class="profile-wrap">
+            <div class="avatar">
+              <img id="profileImage" src="/profile-placeholder.svg" alt="Leonard Dumitru profile image" />
+            </div>
+            <div>
+              <h2>Product logic, AI infrastructure, commercial systems.</h2>
+              <p>Senior IC / lead profile for companies that need someone who can audit complexity, define architecture, build AI workflows and make technical assets commercially usable.</p>
+            </div>
+          </div>
+          <div class="upload-note">
+            profile image support: upload <strong>public/profile.jpg</strong>, <strong>public/profile.png</strong> or <strong>public/profile.webp</strong> to GitHub. The site will pick it up automatically.
+          </div>
+        </div>
+        <div class="mini-grid">
+          <div class="metric"><strong>12+ yrs</strong><span>Sales → Product → AI Systems</span></div>
+          <div class="metric"><strong>AI agents</strong><span>Claude Code, MCP, Skills, RAG</span></div>
+          <div class="metric"><strong>SalesOS</strong><span>custom commercial operating layer</span></div>
+          <div class="metric"><strong>R&D fit</strong><span>ISR, RF-spectrum, payloads, fusion</span></div>
+        </div>
+        <div class="stack-card">
+          <div class="chips">
+            <span class="chip hot">Claude Code</span>
+            <span class="chip hot">MCP</span>
+            <span class="chip hot">AI Agents</span>
+            <span class="chip">Airtable</span>
+            <span class="chip">Vercel</span>
+            <span class="chip">GitHub</span>
+            <span class="chip">Pipedrive</span>
+            <span class="chip">PandaDoc</span>
+            <span class="chip">n8n / Make</span>
+            <span class="chip">AWS</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section id="systems">
+      <div class="section-head">
+        <div>
+          <div class="label">core thesis</div>
+          <h2 class="section-title">I operate where product, data and AI systems meet.</h2>
+        </div>
+        <p class="section-note">Not a generic PM. Not a backend engineer. I sit one layer above implementation: mapping reality, defining system behavior, building operating logic and using AI tools to accelerate delivery.</p>
+      </div>
+      <div class="grid-3">
+        <div class="panel">
+          <h3>Chaos → relational model</h3>
+          <p>I take scattered knowledge, files, CRM records, proposal assets and undocumented workflows, then convert them into clean entities, relationships and ownership logic.</p>
+        </div>
+        <div class="panel">
+          <h3>SaaS silos → custom SalesOS</h3>
+          <p>I replace disconnected tool usage with a cohesive execution layer for account intelligence, proposal support, lead flows, follow-ups and commercial decision-making.</p>
+        </div>
+        <div class="panel">
+          <h3>AI demos → usable agents</h3>
+          <p>I define retrieval rules, prompt architecture, guardrails and workflows so AI agents produce controlled, evidence-based outputs instead of plausible noise.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="current">
+      <div class="section-head">
+        <div>
+          <div class="label">current role</div>
+          <h2 class="section-title">Skyline / La Orizont: AI systems, SalesOS and R&D knowledge infrastructure.</h2>
+        </div>
+        <p class="section-note">A UAV / defense / infrastructure environment with high technical density, fragmented commercial tooling and strong need for AI-operable product knowledge.</p>
+      </div>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>What I inherited</h3>
+          <ul>
+            <li>Fragmented commercial/product environment across Pipedrive, PandaDoc, Airtable, SharePoint, PDFs, supplier docs, landing pages and local files.</li>
+            <li>Product and service knowledge spread across people and documents, with weak relationship logic and limited reuse for proposals or strategic-client conversations.</li>
+            <li>R&D-relevant domains — UAV platforms, ISR payloads, RF-spectrum awareness, Remote ID / C-UAS, data collection and sensor fusion — without a controlled AI retrieval layer.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>What I built</h3>
+          <ul>
+            <li>Accurate relational databases connecting accounts, contacts, deals, activities, offers, services, capabilities, use cases, products, payloads, training and follow-up workflows.</li>
+            <li>A custom SalesOS replacing siloed Pipedrive + PandaDoc usage with one cohesive commercial execution and proposal-support layer.</li>
+            <li>Claude.ai + Claude Code + MCP workflows, structured knowledge packs, prompt menus and internal AI agents for product Q&A, proposal briefs, event readiness and commercial advisory.</li>
+            <li>Lead-magnet capture flows, SEO-indexed pages, sitemap logic and GTM service funnels connected to structured campaign logic.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:18px;">
+        <h3>R&D / technical product angle</h3>
+        <p>
+          Beyond business outcomes, the work creates a technical knowledge layer for reasoning about <span class="accent">ISR</span> (Intelligence, Surveillance, Reconnaissance), <span class="accent">RF-spectrum awareness</span>, payload integration, sensor data collection, Remote ID / C-UAS limitations, critical-infrastructure sensing and data-fusion narratives — with guardrails against hallucinated specs, pricing or unsupported operational claims.
+        </p>
+      </div>
+    </section>
+
+    <section id="architecture">
+      <div class="section-head">
+        <div>
+          <div class="label">operating architecture</div>
+          <h2 class="section-title">The pattern I repeatedly build.</h2>
+        </div>
+        <p class="section-note">The same logic applies across AdTech, Telecom, SaaS, payments and UAV systems: map the real system, normalize the data, then expose it through usable workflows.</p>
+      </div>
+      <div class="architecture">
+        <div class="node"><div class="num">01</div><strong>Audit reality</strong><span>systems, data, owners, APIs, docs, gaps</span></div>
+        <div class="node"><div class="num">02</div><strong>Model entities</strong><span>relations, IDs, constraints, outputs, behavior</span></div>
+        <div class="node"><div class="num">03</div><strong>Build workflows</strong><span>CRM, proposals, lead capture, follow-up, QA</span></div>
+        <div class="node"><div class="num">04</div><strong>Add AI layer</strong><span>Claude Code, MCP, RAG, prompts, agents, Skills</span></div>
+        <div class="node"><div class="num">05</div><strong>Govern outputs</strong><span>guardrails, caveats, evidence, monitoring, ownership</span></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <div>
+          <div class="label">experience</div>
+          <h2 class="section-title">Inherited problems and what I solved.</h2>
+        </div>
+        <p class="section-note">A compressed version of the CV narrative, focused on systems, product logic, automation and technical-commercial execution.</p>
+      </div>
+      <div class="timeline">
+        <article class="job">
+          <div class="job-meta">
+            <h3>Product Manager — AI Systems & Commercial Automation</h3>
+            <div class="company">Skyline Drones / La Orizont Group</div>
+            <div class="date">2026 — Present</div>
+            <div class="tag-row"><span class="tag">Claude Code</span><span class="tag">MCP</span><span class="tag">AI Agents</span><span class="tag">SalesOS</span><span class="tag">ISR / RF</span></div>
+          </div>
+          <div class="job-body">
+            <div class="block-title">Solved</div>
+            <ul>
+              <li>Came into a chaotic commercial/product environment and rebuilt the operating logic from the ground up.</li>
+              <li>Created accurate relational data models and replaced siloed SaaS usage with a custom SalesOS for commercial execution, proposal support and account intelligence.</li>
+              <li>Built AI-assisted workflows using Claude.ai, Claude Code, MCP, structured knowledge packs and custom agent/prompt systems.</li>
+              <li>Extended the system into R&D knowledge areas: UAV platforms, ISR payloads, RF-spectrum awareness, Remote ID / C-UAS, sensor data collection and data-fusion narratives.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta">
+            <h3>Product Solution Manager / Product Owner</h3>
+            <div class="company">AdStart Media</div>
+            <div class="date">04/2025 — 12/2025 · Remote</div>
+            <div class="tag-row"><span class="tag">Internal Products</span><span class="tag">BI Pipelines</span><span class="tag">APIs</span><span class="tag">SQL Validation</span></div>
+          </div>
+          <div class="job-body">
+            <div class="block-title">Solved</div>
+            <ul>
+              <li>Owned internal products used by Commercial, BI and IT teams, including DMS, admin tools, workspace systems, monitoring and reporting.</li>
+              <li>Audited partially merged IT teams, duplicated services, undocumented dependencies, broken data flows and unclear ownership.</li>
+              <li>Mapped APIs, pipelines, infrastructure dependencies and KPI logic, then translated findings into Jira epics, product contracts and refactoring plans.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta">
+            <h3>Founder / Product Owner</h3>
+            <div class="company">WebHunt.io</div>
+            <div class="date">12/2022 — 04/2025</div>
+            <div class="tag-row"><span class="tag">LLM APIs</span><span class="tag">Automation</span><span class="tag">RAG-style Retrieval</span><span class="tag">GTM Systems</span></div>
+          </div>
+          <div class="job-body">
+            <div class="block-title">Solved</div>
+            <ul>
+              <li>Built GTM, outbound and intelligence products for SaaS, cybersecurity, telecom and gov-adjacent clients.</li>
+              <li>Designed automation-first systems for enrichment, ICP scoring, segmentation, multi-channel routing and ops decision support.</li>
+              <li>Implemented AI-assisted workflows and retrieval-based knowledge systems with controlled inputs, fallbacks, rate limits and hallucination-reduction logic.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta">
+            <h3>COO — Telecom Advertising Products</h3>
+            <div class="company">Relario Voice AG</div>
+            <div class="date">01/2023 — 09/2024</div>
+            <div class="tag-row"><span class="tag">CDRs</span><span class="tag">Routing Logic</span><span class="tag">Flash Calls</span><span class="tag">Telecom Metrics</span></div>
+          </div>
+          <div class="job-body">
+            <div class="block-title">Solved</div>
+            <ul>
+              <li>Owned commercial and operational product logic for telecom-based advertising systems.</li>
+              <li>Worked with CDRs, completion rates, route-level performance and quality signals to define product rules and billable-event logic.</li>
+              <li>Contributed to early telecom-based 2FA / flash-call logic, feasibility, inventory constraints and pricing assumptions.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta">
+            <h3>Senior Business Development Manager</h3>
+            <div class="company">Twispay</div>
+            <div class="date">09/2019 — 02/2021</div>
+            <div class="tag-row"><span class="tag">Payment APIs</span><span class="tag">3DS</span><span class="tag">Risk Logic</span><span class="tag">Merchant Onboarding</span></div>
+          </div>
+          <div class="job-body">
+            <div class="block-title">Solved</div>
+            <ul>
+              <li>Owned full-cycle sales for EU merchants, including high-risk verticals, while participating directly in technical onboarding and integration review.</li>
+              <li>Worked with Product, Fraud, AML and Engineering on API integrations, callback flows, 3DS behavior, risk profiling and go-live decisions.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta">
+            <h3>Product Owner — SaaS Platform</h3>
+            <div class="company">Oriel.io</div>
+            <div class="date">2021</div>
+            <div class="tag-row"><span class="tag">Multi-tenant SaaS</span><span class="tag">Event-driven Logic</span><span class="tag">QA</span></div>
+          </div>
+          <div class="job-body">
+            <div class="block-title">Solved</div>
+            <ul>
+              <li>Defined event ingestion, segmentation logic, trigger conditions, campaign orchestration and reporting outputs for an early-stage SaaS product.</li>
+              <li>Removed non-essential features, stabilized behavior and prepared the product for sale through documentation of constraints and limitations.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <div class="job-meta">
+            <h3>Affiliate Growth Manager</h3>
+            <div class="company">BitterStrawberry AG</div>
+            <div class="date">07/2012 — 12/2018</div>
+            <div class="tag-row"><span class="tag">AdTech</span><span class="tag">SSP/DSP</span><span class="tag">Routing</span><span class="tag">Attribution</span></div>
+          </div>
+          <div class="job-body">
+            <div class="block-title">Solved</div>
+            <ul>
+              <li>Owned supply and demand growth for mobile AdTech performance across adult and mainstream verticals.</li>
+              <li>Managed tracking, redirects, postbacks, subIDs, targeting, payouts, caps, routing, media buying, fraud signals and performance by GEO/device/carrier/source.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="section-head">
+        <div>
+          <div class="label">technical operating stack</div>
+          <h2 class="section-title">Tools and domains I can actually reason with.</h2>
+        </div>
+        <p class="section-note">Hands-on enough to debug, structure, specify, validate and direct implementation — without pretending to be a backend engineer.</p>
+      </div>
+      <div class="skill-matrix">
+        <div class="skill-box"><h3>AI systems</h3><p>Claude.ai, Claude Code, MCP, custom Skills, prompt architecture, agent workflows, RAG-style retrieval, guardrails.</p></div>
+        <div class="skill-box"><h3>Data architecture</h3><p>Airtable relational models, SQL validation, CSV/JSON schemas, knowledge packs, entity relationships, KPI logic.</p></div>
+        <div class="skill-box"><h3>Automation / GTM</h3><p>Make, n8n, Zapier, Clay, Apollo, Sales Navigator, lead capture, routing, segmentation, enrichment workflows.</p></div>
+        <div class="skill-box"><h3>Cloud / delivery</h3><p>GitHub, Vercel, AWS Lambda/S3/Glue/Athena/EC2, Docker, Linux CLI, serverless workflows.</p></div>
+        <div class="skill-box"><h3>Commercial systems</h3><p>Pipedrive, PandaDoc, HubSpot-light, proposal logic, CRM normalization, account intelligence, custom SalesOS architecture.</p></div>
+        <div class="skill-box"><h3>Product domains</h3><p>AdTech, SaaS, Telecom, PSP/payments, fraud/KYC, OSINT, UAV systems, ISR, RF-spectrum, payloads.</p></div>
+        <div class="skill-box"><h3>Governance</h3><p>GDPR, privacy-by-design, lawful processing, output constraints, claim safety, operational caveats.</p></div>
+        <div class="skill-box"><h3>Certifications</h3><p>AWS Cloud Practitioner, CEH v12, GIAC GOSI, Certified Data Protection Officer.</p></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-card">
+        <div class="panel">
+          <div class="label">next role</div>
+          <p class="quote">I fit senior roles where AI systems, product architecture, data, GTM and technical R&D need to become one coherent operating model.</p>
+        </div>
+        <div class="panel">
+          <h3>Contact</h3>
+          <p><span class="muted">Email</span><br><a class="accent" href="mailto:wh-systems@proton.me">wh-systems@proton.me</a></p>
+          <p style="margin-top:14px;"><span class="muted">LinkedIn</span><br><a class="accent" href="https://www.linkedin.com/in/wh-systems/" target="_blank" rel="noopener">linkedin.com/in/wh-systems</a></p>
+          <div class="hero-actions" style="margin-top:20px;">
+            <a class="btn" href="mailto:wh-systems@proton.me?subject=Intro%20Call%20with%20Leonard%20Dumitru">Book intro call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <div>Last updated: May 2026 · Static Next.js shell · Profile image path: /public/profile.jpg, /profile.png or /profile.webp</div>
+  </footer>
+
+  <script>
+    (function () {
+      const img = document.getElementById('profileImage');
+      const candidates = ['/profile.webp', '/profile.jpg', '/profile.png', '/avatar.webp', '/avatar.jpg', '/avatar.png', '/profile-placeholder.svg'];
+      let index = 0;
+      function tryNext() {
+        if (index >= candidates.length) return;
+        img.src = candidates[index++];
+      }
+      img.addEventListener('error', tryNext);
+      tryNext();
+    })();
+  </script>
+</body>
+</html>
